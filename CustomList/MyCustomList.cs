@@ -12,7 +12,7 @@ namespace CustomList
         private int capacity = 4;
         private int count;
         private T[] items;
-
+        private int testing;
         public MyCustomList()
         {
             items = new T[capacity];
