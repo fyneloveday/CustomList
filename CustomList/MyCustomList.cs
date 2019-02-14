@@ -42,21 +42,25 @@ namespace CustomList
 
         public void Add(T item)
         {
-            count++;
+            
             if (count >= capacity)
             {
                 capacity = capacity * 2;
                 T[] temp = new T[capacity];
-                for (int i = 0; i > count; i++)
+                for (int i = 0; i < count; i++)
                 {
                     temp[i] = items[i];
                 }
                 temp[count] = item;
+                count++;
+                items = temp;
             }
             else if (count < capacity) 
             {
-                items[count - 1] = item;
+                items[count] = item;
+                count++;
             }
+            
      
         }
 
@@ -115,7 +119,7 @@ namespace CustomList
             return result;
         }
 
-        public MyCustomList<T> Zip (MyCustomList<T> load1, MyCustomList<T> load2)
+        public MyCustomList<T> Zip(MyCustomList<T> load1, MyCustomList<T> load2)
         {
             MyCustomList<T> result = new MyCustomList<T>();
             for (int i = 0; i < load1.count; i++)
@@ -123,6 +127,12 @@ namespace CustomList
                 result.Add(load1[i]);
                 result.Add(load2[i]);
             }
+               
+        
+            // {
+            // result.Add(load1[i]);
+            // result.Add(load2[i]);
+            // }
 
             return result;
         }

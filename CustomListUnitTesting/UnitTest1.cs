@@ -66,7 +66,7 @@ namespace CustomListUnitTesting
             load1 = load1.Zip(load1, load2);
 
             //Assert
-            Assert.AreEqual(expectedValue, load1[1]);
+            Assert.AreEqual(expectedValue, load1[2]);
         }
     }
 }
