@@ -22,7 +22,6 @@ namespace CustomList
             custom.Add(40);
             custom.Add(45);
             custom.Add(50);
-            custom.Remove(55);
 
 
 

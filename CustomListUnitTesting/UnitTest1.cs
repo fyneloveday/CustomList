@@ -20,18 +20,21 @@ namespace CustomListUnitTesting
             Assert.AreEqual(expectedCount, customList.Count);
         }
 
-        //[TestMethod]
-        //public void TestMethod2()
-        //{
-        //    //Arrange
-        //    MyCustomList <int> customList = new MyCustomList <int> ();
-        //    int value = 55;
-        //    int expectedCount = (0);
-        //    //Act
-        //    customList.Remove(value);
-        //    //Assert
-        //    Assert.IsTrue(expectedCount);
-        //}
+        [TestMethod]
+        public void TestMethod2()
+        {
+            //Arrange
+            MyCustomList<int> customList = new MyCustomList<int>();
+            MyCustomList<int> load1 = new MyCustomList<int>() { 5 };
+            MyCustomList<int> load2 = new MyCustomList<int>() { 10 };
+            int expectedValue = 10;
+
+            //Act
+            load1 = load1.Zip(load1, load2);
+
+            //Assert
+            Assert.AreEqual(expectedValue, load2[0]);
+        }
 
 
         [TestMethod]
@@ -48,6 +51,22 @@ namespace CustomListUnitTesting
 
             //Assert
             Assert.AreEqual(expectedValue, load1[0]);
+        }
+
+        [TestMethod]
+        public void TestMethod4()
+        {
+            //Arrange
+            MyCustomList<int> customList = new MyCustomList<int>();
+            MyCustomList<int> load1 = new MyCustomList<int>() { 5, 15, 25, };
+            MyCustomList<int> load2 = new MyCustomList<int>() { 10, 20, 30 };
+            int expectedValue = 15;
+
+            //Act
+            load1 = load1.Zip(load1, load2);
+
+            //Assert
+            Assert.AreEqual(expectedValue, load1[1]);
         }
     }
 }
